@@ -10,4 +10,4 @@ This app has been designed to keep track of different tasks, such as cleaning, c
 
 ## Usage
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Simply write a new task and hit the "Start" button. You'll see the timer starting to count. When you finish doing your task, hit the "Stop" button and this task will be saved into the database. To see your task history, refresh the page.
