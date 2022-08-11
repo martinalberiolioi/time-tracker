@@ -18,7 +18,7 @@ This app has been designed to keep track of different tasks, such as cleaning, c
 - Run `composer update`
 - Run `composer install`
 - Using the terminal in the app's root folder, execute `./vendor/bin/sail up`. Then, leave this terminal running.
-- In another terminal, execute `./vendor/bin/sail artisan key:generate`
+- Once the previous command has finished installing, in another terminal, execute `./vendor/bin/sail artisan key:generate`
 - Execute `./vendor/bin/sail artisan migrate`
 - Open the app using your browser in localhost
 
