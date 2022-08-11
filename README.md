@@ -11,22 +11,22 @@ This app has been designed to keep track of different tasks, such as cleaning, c
 ## Installation
 
 - Clone the repo to your machine
-- Copy the .env.example file to a new file named .env and add the following details:
-    - DB_HOST=mysql
-    - DB_USERNAME=sail
-    - DB_PASSWORD=password
-- Run composer update
-- Run composer install
-- Using the terminal in the app's root folder, execute ./vendor/bin/sail up. Then, leave this terminal running.
-- In another terminal, execute ./vendor/bin/sail artisan key:generate
-- Execute ./vendor/bin/sail artisan migrate
+- Copy the `.env.example` file to a new file named `.env` and add the following details:
+    - `DB_HOST=mysql`
+    - `DB_USERNAME=sail`
+    - `DB_PASSWORD=password`
+- Run `composer update`
+- Run `composer install`
+- Using the terminal in the app's root folder, execute `./vendor/bin/sail up`. Then, leave this terminal running.
+- In another terminal, execute `./vendor/bin/sail artisan key:generate`
+- Execute `./vendor/bin/sail artisan migrate`
 - Open the app using your browser in localhost
 
 ## Some problems you may encounter
 
 If you start the project without migrating the DB, there will be errors related to that. To fix them:
-- ./vendor/bin/sail down --rmi all -v
-- ./vendor/bin/sail up
+- `./vendor/bin/sail down --rmi all -v`
+- `./vendor/bin/sail up`
 
 If there's an error involving ports used by other applications, you may change them from the .env file.
 
