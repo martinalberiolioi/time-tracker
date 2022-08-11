@@ -6,7 +6,7 @@ This app has been designed to keep track of different tasks, such as cleaning, c
 
 - Composer
 - PHP 8.1
-- php-curl, php-mbstring, php-xml
+- php8.1-curl, php8.1-mbstring, php8.1-xml
 
 ## Installation
 
@@ -22,9 +22,13 @@ This app has been designed to keep track of different tasks, such as cleaning, c
 - Execute ./vendor/bin/sail artisan migrate
 - Open the app using your browser in localhost
 
-Notice: if you start the app without migrating the DB, there will be errors related to that. To fix them:
+## Some problems you may encounter
+
+If you start the project without migrating the DB, there will be errors related to that. To fix them:
 - ./vendor/bin/sail down --rmi all -v
 - ./vendor/bin/sail up
+
+If there's an error involving ports used by other applications, you may change them from the .env file.
 
 ## Usage
 
