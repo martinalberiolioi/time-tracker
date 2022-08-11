@@ -10,6 +10,14 @@ use DateTime;
 
 class TaskController extends Controller
 {
+    /**
+     * Returns all the tasks in the DB. Calculates total elapsed time on all tasks.
+     * 
+     * If there's a repeated task, it sums the elapsed time to get a total elapsed time.
+     * 
+     * @return View in case the method is called from a browser
+     * @return Array in case the method is called from the terminal
+     */
     public function index(Request $request)
     {
         $total_elapsed_time = 0;
@@ -19,6 +27,7 @@ class TaskController extends Controller
         foreach($tasks as $t) {
             $total_task_time = 0;
 
+            // If the task is in the results array, skip the process to avoid duplicates
             if(!in_array($t->name, array_column($results, 'name'))) {
                 $ocurrences = $tasks->where('name', $t->name);
 
@@ -41,17 +50,27 @@ class TaskController extends Controller
 
         $tt_parsed = date('H:i:s', $total_elapsed_time);
 
-        if(isset($request->origin) && $request->origin == 'CMD') {
+        if(isset($request->origin) && $request->origin == 'terminal') {
             return ['results' => $results, 'total_time' => $tt_parsed];
         }
 
         return view('home', ['results' => $results, 'total_time' => $tt_parsed]);
     }
 
+    /**
+     * Receives a task name, start time and the action to be performed.
+     * 
+     * Before starting a task, it checks it isn't running already.
+     * Before ending a task, it checks it exists in the DB first.
+     * 
+     * @throws Error if the user tries to start a task that's already running
+     * @throws Error if the user tries to stop a task that doesn't exist in the BD
+     */
     public function store(Request $request)
     {
         $name = $request->task_name;
 
+        // Parses time from milliseconds to date
         $st_seconds = $request->start_time / 1000;
         $st_parsed = date('Y-m-d H:i:s', $st_seconds);
 
@@ -83,6 +102,11 @@ class TaskController extends Controller
         $task->save();
     }
 
+    /**
+     * Searches a running task by name
+     * 
+     * @return Task if found
+     */
     public function show(Request $request)
     {
         $task = Task::where(['name' => $request->task_name, 'end_time' => null, 'status' => 'Running'])->first();

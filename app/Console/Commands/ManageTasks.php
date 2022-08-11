@@ -25,10 +25,15 @@ class ManageTasks extends Command
 
     /**
      * Execute the console command.
-     *
-     * @param string $task_name
-     * @param string $action
-     * @return string
+     * Receives a task name and the action to be performed.
+     * 
+     * Before starting a task, it checks it isn't running already.
+     * Before ending a task, it checks it exists in the DB first.
+     * 
+     * @return string Informing the procedure was successfull or if there was any errors
+     * @throws Error if the user tries to start a task that's already running
+     * @throws Error if the user tries to stop a task that doesn't exist in the BD
+     * @throws Error if the it receives an action different from "start" or "stop"
      */
     public function handle()
     {
@@ -43,6 +48,7 @@ class ManageTasks extends Command
         $request->task_name = $task_name;
         $request->action = $action;
 
+        // Search the task in the DB
         $task = $controller->show($request);
 
         if(strtolower($action) == 'start') {

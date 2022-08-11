@@ -30,7 +30,7 @@ class ShowTasks extends Command
     public function handle()
     {
         $request = new Request();
-        $request->origin = 'CMD';
+        $request->origin = 'terminal';
 
         $controller = new TaskController();
         $response = $controller->index($request);
