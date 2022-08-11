@@ -20,7 +20,7 @@ This app has been designed to keep track of different tasks, such as cleaning, c
 - Using the terminal in the app's root folder, execute `./vendor/bin/sail up`. Then, leave this terminal running.
     - Optional: to avoid writing `./vendor/bin/sail` everytime, you can create an alias to just write "sail". 
     - The command is: `alias sail='[ -f sail ] && sh sail || sh vendor/bin/sail'`
-    - So from now on, you can write `alias` or `./vendor/bin/alias`
+    - So from now on, you can write `sail` or `./vendor/bin/sail`
 - Once the previous command has finished installing, in another terminal, execute `./vendor/bin/sail artisan key:generate`
 - Execute `./vendor/bin/sail artisan migrate`
 - Open the app using your browser in localhost
