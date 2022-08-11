@@ -15,7 +15,7 @@ document.getElementById("start").addEventListener("click", () => {
         }
         int = setInterval(time, 1000); // 1 second
         start_time = new Date().getTime();
-        saveTask(task_name.value, start_time);
+        saveTask('start', task_name.value, start_time);
     } else {
         alert("Insert a task");
     }
@@ -23,7 +23,7 @@ document.getElementById("start").addEventListener("click", () => {
 
 document.getElementById("stop").addEventListener("click", () => {
     end_time = new Date().getTime();
-    saveTask(task_name.value, start_time, end_time);
+    saveTask('stop', task_name.value, start_time, end_time);
     clearInterval(int);
 });
 
@@ -51,9 +51,10 @@ function time() {
     timerRef.innerHTML = `${h}:${m}:${s}`;
 }
 
-function saveTask(task_name, start_time, end_time) {
+function saveTask(action, task_name, start_time, end_time) {
     $.post('/save', {
         '_token': $('meta[name=csrf-token]').attr('content'),
+        action: action,
         task_name: task_name,
         start_time: start_time,
         end_time: end_time
