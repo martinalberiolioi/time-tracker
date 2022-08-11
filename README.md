@@ -28,7 +28,8 @@ If you start the project without migrating the DB, there will be errors related 
 - `./vendor/bin/sail down --rmi all -v`
 - `./vendor/bin/sail up`
 
-If there's an error involving ports used by other applications, you may change them from the .env file.
+If there's an error involving ports used by other applications, you may change them from the .env file. For example:
+- APP_PORT=8080
 
 ## Usage
 
