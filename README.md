@@ -4,6 +4,7 @@ This app has been designed to keep track of different tasks, such as cleaning, c
 
 ## Requirements
 
+- Composer
 - PHP 8.1
 - php-curl, php-mbstring, php-xml
 
@@ -11,9 +12,9 @@ This app has been designed to keep track of different tasks, such as cleaning, c
 
 - Clone the repo to your machine
 - Copy the .env.example file to a new file named .env and add the following details:
-- - DB_HOST=mysql
-- - DB_USERNAME=sail
-- - DB_PASSWORD=password
+    - DB_HOST=mysql
+    - DB_USERNAME=sail
+    - DB_PASSWORD=password
 - Run composer update
 - Run composer install
 - Using the terminal in the app's root folder, execute ./vendor/bin/sail up
