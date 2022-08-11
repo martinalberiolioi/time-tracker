@@ -17,3 +17,5 @@ use App\Http\Controllers\TaskController;
 Route::get('/', [TaskController::class, 'index']);
 
 Route::post('/save', [TaskController::class, 'store']);
+
+Route::get('/find', [TaskController::class, 'show']);
