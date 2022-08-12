@@ -1,6 +1,6 @@
 # Time Tracker app
 
-This app was created in Laravel 9 and it has been designed to keep track of different tasks, such as cleaning, cooking, walking the dog or whatever task you want! You can use it with a browser or with the terminal.
+This app was created in Laravel 9 and it has been designed to keep track of different tasks, such as cleaning, cooking, walking the dog or whatever task you want! You can use the user interface either with a browser or with the terminal, as it best suits you!
 
 ## Requirements
 
