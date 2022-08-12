@@ -41,9 +41,6 @@ Some examples of usage:
 
 The task:show command doesn't need any input, it will return a table of all the tasks and their names, start time, end time, elapsed time and status. After the table, it also shows you the total elapsed time.
 
-To change the app's timezone to yours, so you can see the start time and end time properly, change it in:
-- `config/app.php ---> 'timezone' => 'Europe/Madrid'`
-
 ## Some problems you may encounter
 
 If you start the project without migrating the DB, there will be errors related to that. To fix them:
